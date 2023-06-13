@@ -1,0 +1,11 @@
+13/6
+- Clean (*Hamaro)
+- Spring Boot (*Hvn)
+
+*Work to do
+- Design (*Hamaro)
+- Entity (*Hvn)
+- Hỏi về db cho web site bán hàng (*Hamaro)
+- Mượn 1 trang web (*Hamaro)
+- Lấy thông tin từ khách hàng (*Hvn)
+- Đưa ra quy trình lập trình bằng Spring Boot (*Hvn)
