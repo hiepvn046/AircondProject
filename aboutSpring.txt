@@ -1,0 +1,17 @@
+Spring boot là gì? Về cơ bản thì nó là một framework cho phép tạo Api dễ hơn
+
+Cái mà chúng ta chọn hôm nay tên chuẩn của nó là Spring MVC.
+
+Về Spring MVC thì nó khác gì MVC thông thường? 
+Spring MVC là một phần của Spring Framework: Spring MVC là một phần của Spring Framework, một framework phát triển ứng dụng Java toàn diện. Nó tích hợp sẵn với các tính năng và tiện ích của Spring Framework, bao gồm Dependency Injection, quản lý transaction, xử lý ngoại lệ, và nhiều hơn nữa. Trong khi đó, MVC thông thường chỉ là một mô hình thiết kế tổ chức ứng dụng.
+
+Quản lý IOC (Inversion of Control): Spring MVC sử dụng tính năng IOC của Spring Framework để quản lý các thành phần trong ứng dụng. Điều này giúp dễ dàng tiêm phụ thuộc (dependency injection) vào các thành phần như Controllers, Services, và DAOs. Trong MVC thông thường thì phải tự quản lý việc khởi tạo và tương tác giữa các thành phần.
+
+Tích hợp với Spring ecosystem: Spring MVC tích hợp tốt với các thành phần khác trong hệ sinh thái của Spring, như Spring Security để xác thực và phân quyền người dùng, Spring Data JPA để tương tác với cơ sở dữ liệu, và Spring Boot để dễ dàng triển khai ứng dụng. MVC thông thường không cung cấp tích hợp sẵn với các công nghệ và tiện ích khác như vậy.
+
+Tiện ích hỗ trợ: Spring MVC cung cấp nhiều tiện ích như Spring WebFlux cho ứng dụng Reactive, Spring Web Services cho phát triển dịch vụ web SOAP hoặc RESTful, và Spring Test để kiểm tra ứng dụng. MVC thông thường yêu cầu tự xây dựng các tiện ích tương ứng.
+
+Triển khai như thế nào?
+Bước 1: xây dựng Model, View, Controller như bình thường
+Bước 2: Cấu hình Spring MVC: Để cấu hình Spring MVC, cần tạo một file cấu hình (ví dụ: applicationContext.xml hoặc các file cấu hình dựa trên Java như @Configuration). Trong file cấu hình, có thể cấu hình các bean Spring, quy định các thành phần như Controller, ViewResolver, và các tùy chọn khác như xác thực người dùng, cấu hình giao tiếp với cơ sở dữ liệu, vv.
+Bước 3: Định tuyến URL: Định tuyến URL cho các yêu cầu từ người dùng đến các phương thức xử lý tương ứng trong Controller. Có thể sử dụng các cơ chế định tuyến như @RequestMapping, @GetMapping, @PostMapping để ánh xạ các URL với các phương thức trong Controller.
