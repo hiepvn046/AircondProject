@@ -28,6 +28,9 @@ public class Database {
             public void run(String... args) throws Exception {
                 Product product = new Product("Air 1",20.0);
                 logger.info("insert : "+ productRepository.save(product));
+                
+                Product product2 = new Product("Air 2",25.0);
+                logger.info("insert : "+ productRepository.save(product2));
             };
         };
     }
