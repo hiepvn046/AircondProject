@@ -45,48 +45,27 @@ public class ProductController {
 
     @GetMapping("/{id}")
     ResponseEntity<ResponseObject> findById(@PathVariable Long id) {
-        Optional<Product> foundProduct = reposiroty.findById(id);
-        return foundProduct.isPresent() ? ResponseEntity.status(HttpStatus.FOUND).body(
-                new ResponseObject("Found", "Found product", foundProduct)
-        ) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new ResponseObject("Not Found", "Cannot found product with id: " + id, "")
-        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                new ResponseObject("Not Found", "Cannot found product with id: " + id, ""));
     }
 
     @PostMapping("/insert")
     ResponseEntity<ResponseObject> insertProduct(@RequestBody Product newProduct) {
-        return reposiroty.findByProductName(newProduct.getProductName()).isEmpty() ? ResponseEntity.status(HttpStatus.ACCEPTED).body(
-                new ResponseObject("ACCEPTED", "The data has been inserted", reposiroty.save(newProduct))
-        ) : ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(
-                new ResponseObject("NOT_ACCEPTABLE", "This product has already in database", "")
-        );
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(
+                new ResponseObject("NOT_ACCEPTABLE", "This product has already in database", ""));
     }
 
     @PutMapping("/{id}")
     ResponseEntity<ResponseObject> updateProduct(@RequestBody Product newProduct, @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("OK", "This product has been updated", reposiroty.findById(id).map(product -> {
-                    product.setProductName(newProduct.getProductName());
-                    product.setPrice(newProduct.getPrice());
-                    return reposiroty.save(product);
-                }).orElseGet(() -> {
-                    newProduct.setId(id);
-                    return reposiroty.save(newProduct);
-                }))
-        );
+                new ResponseObject("OK", "This product has been updated", ""));
     }
 
     @DeleteMapping("/{id}")
     ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id) {
-        if (reposiroty.existsById(id)) {
-            reposiroty.deleteById(id);
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("OK", "Product " + id + " has been deleted", ""));
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    new ResponseObject("NOT FOUND", "Cannot find the data", "")
-            );
-        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("OK", "Product " + id + " has been deleted", ""));
     }
 
 }
