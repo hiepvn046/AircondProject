@@ -23,3 +23,5 @@
 hs_err_pid*
 replay_pid*
 v0.1/AirCondProject/nbactions.xml
+v0.1/AirCondProject/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+*.lst
