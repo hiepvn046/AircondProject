@@ -4,33 +4,25 @@
  */
 package com.aircond.AirCondProject.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  * @author DELL
  */
-
-@Entity
+@Document(collection = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private ObjectId _id;
+    private String brandName;
     private String productName;
-    private Double price;
-
-    public Product() {
-    }
-
-    
-    
-    public Product(String productName, Double price) {
-        this.productName = productName;
-        this.price = price;
-    }
+    private String modelId;
+    private String indoorId;
+    private String outdoorId;
 
     public String getProductName() {
         return productName;
@@ -40,18 +32,59 @@ public class Product {
         this.productName = productName;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getModelId() {
+        return modelId;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" + "id=" + id + ", productName=" + productName + ", price=" + price + '}';
+    public String getIndoorId() {
+        return indoorId;
     }
+
+    public void setIndoorId(String indoorId) {
+        this.indoorId = indoorId;
+    }
+
+    public String getOutdoorId() {
+        return outdoorId;
+    }
+
+    public void setOutdoorId(String outdoorId) {
+        this.outdoorId = outdoorId;
+    }
+    
+
+    public Product() {
+    }
+
+
+
+    public ObjectId getId() {
+        return _id;
+    }
+
+    public void setId(ObjectId id) {
+        this._id = id;
+    }
+
+
+
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+
+
+
+    
     
     
 }
