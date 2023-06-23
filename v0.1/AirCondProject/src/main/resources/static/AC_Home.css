@@ -1,0 +1,123 @@
+/* AC_Home.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#logo {
+    flex-basis: 20%;
+}
+
+#search-bar {
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+
+#function-button-bar {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.function-button {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 35px;
+    margin-left: 5px;
+}
+
+#search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+#search-bar #search-button-container {
+    margin-left: 10px;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+#content-wrapper {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+#menu-bar {
+    flex-basis: 20%;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+#menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-bar li {
+    margin-bottom: 5px;
+}
+
+#menu-bar a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+#content {
+    flex-basis: 80%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#footer {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
