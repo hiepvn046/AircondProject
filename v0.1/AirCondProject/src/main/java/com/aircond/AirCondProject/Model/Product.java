@@ -4,9 +4,6 @@
  */
 package com.aircond.AirCondProject.Model;
 
-
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,8 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "product")
 public class Product {
+
     @Id
-    private ObjectId _id;
+    private String id;
     private String brandName;
     private String productName;
     private String modelId;
@@ -55,23 +53,17 @@ public class Product {
     public void setOutdoorId(String outdoorId) {
         this.outdoorId = outdoorId;
     }
-    
 
     public Product() {
     }
 
-
-
-    public ObjectId getId() {
-        return _id;
+    public String getId() {
+        return id;
     }
 
-    public void setId(ObjectId id) {
-        this._id = id;
+    public void setId(String id) {
+        this.id = id;
     }
-
-
-
 
     public String getBrandName() {
         return brandName;
@@ -81,10 +73,4 @@ public class Product {
         this.brandName = brandName;
     }
 
-
-
-
-    
-    
-    
 }
