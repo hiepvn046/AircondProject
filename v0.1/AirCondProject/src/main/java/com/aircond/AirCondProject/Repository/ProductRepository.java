@@ -5,7 +5,8 @@
 package com.aircond.AirCondProject.Repository;
 
 import com.aircond.AirCondProject.Model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
@@ -13,6 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 
-public interface ProductRepository extends JpaRepository<Product, Long>{
-    
+public interface ProductRepository extends MongoRepository<Product, ObjectId>{
 }
