@@ -5,14 +5,11 @@
 package com.aircond.AirCondProject.Repository;
 
 import com.aircond.AirCondProject.Model.Product;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
  * @author DELL
  */
-
-
-public interface ProductRepository extends MongoRepository<Product, ObjectId>{
+public interface ProductRepository extends MongoRepository<Product, String> {
 }

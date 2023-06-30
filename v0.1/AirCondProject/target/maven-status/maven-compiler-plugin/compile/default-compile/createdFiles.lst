@@ -2,5 +2,6 @@ com\aircond\AirCondProject\Model\ResponseObject.class
 com\aircond\AirCondProject\AirCondProjectApplication.class
 com\aircond\AirCondProject\Model\Product.class
 com\aircond\AirCondProject\Repository\ProductRepository.class
+com\aircond\AirCondProject\Service\ProductService.class
 com\aircond\AirCondProject\Controller\HomeController.class
 com\aircond\AirCondProject\Controller\ProductController.class
