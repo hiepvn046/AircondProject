@@ -32,12 +32,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    private ProductRepository reposiroty;
     private ProductService productService;
 
     @GetMapping("")
     ResponseEntity<ResponseObject> getAllProducts() {
-        List<Product> foundProduct = reposiroty.findAll();
+        List<Product> foundProduct = productService.getAll();
         return !foundProduct.isEmpty() ? ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("OK", "Get all products", foundProduct)
         ) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(
@@ -47,7 +46,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseObject> getProductById(@PathVariable("id") String id) {
-        Optional<Product> product = reposiroty.findById(id);
+        Optional<Product> product = productService.getProductById(id);
 
         return product.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject("Not Found", "Cannot found product with id: " + id, ""))
                 : ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "Product with id: " + id, product));
@@ -55,19 +54,19 @@ public class ProductController {
 
     @PostMapping("/insert")
     ResponseEntity<ResponseObject> insertProduct(@RequestBody Document data) {
-        reposiroty.save(new Product(data));
+        productService.updateAndInsertProduct(data);
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "The new product has been inserted", ""));
     }
 
     @PutMapping("/{id}")
     ResponseEntity<ResponseObject> updateProduct(@RequestBody Document data, @PathVariable String id) {
-        reposiroty.save(new Product(id, data));
+        productService.updateAndInsertProduct(id, data);
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "The product with id{" + id + "} has been updated", ""));
     }
 
     @DeleteMapping("/{id}")
     ResponseEntity<ResponseObject> deleteProduct(@PathVariable String id) {
-        reposiroty.deleteById(id);
+        productService.deleteProduct(id);
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("OK", "Product with id{" + id + "} has been deleted", ""));
     }

@@ -5,12 +5,10 @@
 package com.aircond.AirCondProject.Service;
 
 import com.aircond.AirCondProject.Model.Product;
-import com.aircond.AirCondProject.Repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 import org.bson.Document;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,30 +16,16 @@ import org.springframework.stereotype.Service;
  * @author DELL
  */
 @Service
-public class ProductService {
-    //This class is bug, I will find the way to let it run
-    //Just ignore it now
+public interface ProductService {
 
-    @Autowired
-    private ProductRepository reposiroty;
+    Optional<Product> getProductById(String id);
 
-    public Optional<Product> getProductById(String id) {
-        return reposiroty.findById(id);
-    }
+    List<Product> getAll();
 
-    public List<Product> getAll() {
-        return reposiroty.findAll();
-    }
+    void updateAndInsertProduct(Document data);
 
-    public void updateAndInsertProduct(Document data) {
-        reposiroty.save(new Product(data));
-    }
+    void updateAndInsertProduct(String id, Document data);
 
-    public void updateAndInsertProduct(String id, Document data) {
-        reposiroty.save(new Product(id, data));
-    }
+    void deleteProduct(String id);
 
-    public void deleteProduct(String id) {
-        reposiroty.deleteById(id);
-    }
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.aircond.AirCondProject.AirCondProjectApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.4 s - in com.aircond.AirCondProject.AirCondProjectApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.657 s - in com.aircond.AirCondProject.AirCondProjectApplicationTests
