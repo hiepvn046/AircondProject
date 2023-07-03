@@ -16,15 +16,15 @@ import org.springframework.data.annotation.Id;
 public class Product {
 
     @Id
-    private String id;
+    private ObjectId id;
     private Document data;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = new ObjectId(id);
     }
 
     public Product() {
@@ -36,7 +36,7 @@ public class Product {
     }
     
     public Product(String id, Document data){
-        this.id = id;
+        this.id = new ObjectId(id);
         this.data = data;
     }
 

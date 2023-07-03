@@ -35,11 +35,12 @@ public class SecurityConfig {
     }
 
     //this one make  a filter for the APIs
+    
     @Bean
     @Order(1)
     public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatcher("/api/**")
+                .securityMatcher("/api/*")
                 .authorizeHttpRequests(authorize -> authorize
                 .anyRequest().hasRole("ADMIN")
                 )

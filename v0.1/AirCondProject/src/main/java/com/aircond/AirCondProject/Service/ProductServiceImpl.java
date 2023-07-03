@@ -9,6 +9,7 @@ import com.aircond.AirCondProject.Repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<Product> getProductById(String id) {
-        return repository.findById(id);
+        return repository.findById(new ObjectId(id));
     }
 
     @Override
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(String id) {
-        repository.deleteById(id);
+        repository.deleteById(new ObjectId(id));
     }
 
 }
