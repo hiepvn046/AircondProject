@@ -103,9 +103,6 @@ header {
 #content {
     flex-basis: 80%;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
 }
 
 .item {
@@ -115,9 +112,73 @@ header {
 }
 
 #footer {
+    margin-top: 5px;
     background-color: #333;
     padding: 15px;
     text-align: center;
     color: #fff;
     font-size: 14px;
+}
+
+#promotion {
+    text-align: center;
+    padding-top: 15px;
+    height: 200px;
+}
+
+.grid-item img {
+    max-width: 80%; /* Ensure the image fits within the grid item */
+    height: auto; /* Maintain the aspect ratio of the image */
+  }
+
+  .item-large {
+    grid-column: span 3;
+    /* Occupies 3 columns */
+    grid-row: span 3;
+    /* Occupies 3 rows */
+}
+
+.item-medium {
+    grid-column: span 2;
+    /* Occupies 2 columns */
+    grid-row: span 2;
+    /* Occupies 2 rows */
+}
+
+.item-small {
+    grid-column: span 1;
+    /* Occupies 1 columns */
+    grid-row: span 1;
+    /* Occupies 1 rows */
+}
+
+.grid-container-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Adjust the number of columns as needed */
+    grid-gap: 10px;
+    /* Adjust the gap between grid items as needed */
+    height: 150px;
+}
+
+.grid-item {
+    background-color: #979797;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#menu-dropdown {
+    margin: 10px;
+}
+
+#menu-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+#change-image-button {
+    margin-top: 10px;
+    padding: 5px 10px;
 }
