@@ -94,10 +94,11 @@ header {
 
 #menu-bar a {
     display: block;
-    padding: 8px;
+    padding: 5px;
     text-decoration: none;
     color: #333;
     font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #content {
@@ -149,6 +150,7 @@ header {
     grid-column: span 1;
     /* Occupies 1 columns */
     grid-row: span 1;
+    height: 100px;
     /* Occupies 1 rows */
 }
 
@@ -158,13 +160,21 @@ header {
     /* Adjust the number of columns as needed */
     grid-gap: 10px;
     /* Adjust the gap between grid items as needed */
-    height: 150px;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Adjust the number of columns as needed */
+    grid-gap: 10px;
+    /* Adjust the gap between grid items as needed */
 }
 
 .grid-item {
-    background-color: #979797;
+    background-color: #eaeaea;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
 
 #menu-dropdown {
