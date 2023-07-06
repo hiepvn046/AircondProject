@@ -11,5 +11,4 @@ package com.aircond.AirCondProject.Security;
 public enum Roles {
     USER,
     ADMIN;
-
 }

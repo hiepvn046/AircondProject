@@ -1,9 +1,14 @@
 com\aircond\AirCondProject\Service\ProductService.class
 com\aircond\AirCondProject\Service\ProductServiceImpl.class
+com\aircond\AirCondProject\Model\Account.class
+com\aircond\AirCondProject\Service\AccountService.class
 com\aircond\AirCondProject\Model\Product.class
+com\aircond\AirCondProject\Repository\AccountRepository.class
+com\aircond\AirCondProject\Controller\AccountController.class
 com\aircond\AirCondProject\Controller\HomeController.class
 com\aircond\AirCondProject\Model\ResponseObject.class
 com\aircond\AirCondProject\Security\SecurityConfig.class
+com\aircond\AirCondProject\Service\UserDetailsServiceImpl.class
 com\aircond\AirCondProject\Controller\ProductController.class
 com\aircond\AirCondProject\Security\Roles.class
 com\aircond\AirCondProject\AirCondProjectApplication.class
