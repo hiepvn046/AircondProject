@@ -4,7 +4,6 @@
  */
 package com.aircond.AirCondProject.Model;
 
-import com.aircond.AirCondProject.Security.Roles;
 import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

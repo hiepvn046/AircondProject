@@ -10,6 +10,5 @@ com\aircond\AirCondProject\Model\ResponseObject.class
 com\aircond\AirCondProject\Security\SecurityConfig.class
 com\aircond\AirCondProject\Service\UserDetailsServiceImpl.class
 com\aircond\AirCondProject\Controller\ProductController.class
-com\aircond\AirCondProject\Security\Roles.class
 com\aircond\AirCondProject\AirCondProjectApplication.class
 com\aircond\AirCondProject\Repository\ProductRepository.class
