@@ -7,11 +7,12 @@ package com.aircond.AirCondProject.Controller;
 import com.aircond.AirCondProject.Model.Product;
 import com.aircond.AirCondProject.Model.ResponseObject;
 import com.aircond.AirCondProject.Repository.ProductRepository;
+import com.aircond.AirCondProject.Service.ProductService;
 import java.util.List;
 import java.util.Optional;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +32,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    private ProductRepository reposiroty;
+    private ProductService productService;
 
     @GetMapping("")
     ResponseEntity<ResponseObject> getAllProducts() {
-        List<Product> foundProduct = reposiroty.findAll();
+        List<Product> foundProduct = productService.getAll();
         return !foundProduct.isEmpty() ? ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("OK", "Get all products", foundProduct)
         ) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(
@@ -44,28 +45,30 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<ResponseObject> findById(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new ResponseObject("Not Found", "Cannot found product with id: " + id, ""));
+    ResponseEntity<ResponseObject> getProductById(@PathVariable("id") String id) {
+        Optional<Product> product = productService.getProductById(id);
+
+        return product.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject("Not Found", "Cannot found product with id: " + id, ""))
+                : ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "Product with id: " + id, product));
     }
 
     @PostMapping("/insert")
-    ResponseEntity<ResponseObject> insertProduct(@RequestBody Product newProduct) {
-        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(
-                new ResponseObject("NOT_ACCEPTABLE", "This product has already in database", ""));
+    ResponseEntity<ResponseObject> insertProduct(@RequestBody Document data) {
+        productService.updateAndInsertProduct(data);
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "The new product has been inserted", ""));
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<ResponseObject> updateProduct(@RequestBody Product newProduct, @PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("OK", "This product has been updated", ""));
+    ResponseEntity<ResponseObject> updateProduct(@RequestBody Document data, @PathVariable String id) {
+        productService.updateAndInsertProduct(id, data);
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("OK", "The product with id{" + id + "} has been updated", ""));
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id) {
-
+    ResponseEntity<ResponseObject> deleteProduct(@PathVariable String id) {
+        productService.deleteProduct(id);
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("OK", "Product " + id + " has been deleted", ""));
+                new ResponseObject("OK", "Product with id{" + id + "} has been deleted", ""));
     }
 
 }

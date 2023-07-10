@@ -4,87 +4,56 @@
  */
 package com.aircond.AirCondProject.Model;
 
-
-
+import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  * @author DELL
  */
-@Document(collection = "product")
+@org.springframework.data.mongodb.core.mapping.Document(collection = "product")
 public class Product {
+
     @Id
-    private ObjectId _id;
-    private String brandName;
-    private String productName;
-    private String modelId;
-    private String indoorId;
-    private String outdoorId;
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getModelId() {
-        return modelId;
-    }
-
-    public void setModelId(String modelId) {
-        this.modelId = modelId;
-    }
-
-    public String getIndoorId() {
-        return indoorId;
-    }
-
-    public void setIndoorId(String indoorId) {
-        this.indoorId = indoorId;
-    }
-
-    public String getOutdoorId() {
-        return outdoorId;
-    }
-
-    public void setOutdoorId(String outdoorId) {
-        this.outdoorId = outdoorId;
-    }
-    
-
-    public Product() {
-    }
-
-
+    private ObjectId id;
+    private Document data;
 
     public ObjectId getId() {
-        return _id;
+        return id;
     }
 
-    public void setId(ObjectId id) {
-        this._id = id;
+    public void setId(String id) {
+        this.id = new ObjectId(id);
     }
 
-
-
-
-    public String getBrandName() {
-        return brandName;
+    public Product() {
+        this.data = new Document();
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public Product(Document data) {
+        this.data = data;
     }
-
-
-
-
     
-    
-    
+    public Product(String id, Document data){
+        this.id = new ObjectId(id);
+        this.data = data;
+    }
+
+    public void putData(String key, Object value) {
+        this.data.put(key, value);
+    }
+
+    public Object get(String key) {
+        return data.get(key);
+    }
+
+    public Document getData() {
+        return data;
+    }
+
+    public void setData(Document data) {
+        this.data = data;
+    }
+
 }
